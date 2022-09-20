@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="425" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8379031-41ca-4f4a-8e8b-4d7340f962f0">
+	<property name="ireport.zoom" value="3.7974983358324153"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="90"/>
+	<queryString>
+		<![CDATA[SELECT * FROM transaksi_mandi;]]>
+	</queryString>
+	<field name="nama_pemilik" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_hewan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_mandi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="uang_bayar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="uang_kembali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="172" height="18" uuid="63b124c5-48be-4156-9c4a-2b1903a1666c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WIN PETSHOP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="172" height="15" uuid="2fcbe4ed-e85e-49b9-b706-20226aa29f81"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jalan Raya Jatiwaringin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="172" height="15" uuid="5f4bd1f5-3ca5-4908-9c1b-90eff87d0a7a"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TELP.021xxxxxxxxx]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="90" y="58" width="96" height="14" uuid="67f921bd-e1ad-4286-b4de-df51d387a40f"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="73" height="15" uuid="95999fe3-4489-4c65-9023-7588744e22de"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Hewan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="13" width="60" height="15" uuid="25f214fd-10ac-4337-b6df-064fa8bd28c9"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Mandi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="13" width="58" height="15" uuid="b971ac90-c7c5-4353-911a-cba0cb37a9b2"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="61" height="15" uuid="961b60df-43b1-4f78-a284-a7ef60754158"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_hewan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="0" width="56" height="15" uuid="7b15f142-bf88-4001-a5b2-41d11dfb4b2b"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenis_mandi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="58" height="15" uuid="3fc74d18-3074-4271-a693-3e63a36ef8d3"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="186" height="15" uuid="b789729b-c0f2-4cf6-8823-141f82728cda"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Terima kasih telah berbelanja]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="13" width="33" height="15" uuid="f707b6fa-332b-4687-8b59-363979e029ee"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="28" width="39" height="15" uuid="f18f825b-e0cb-4537-a906-3afccedd77a3"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Kembali]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="0" width="187" height="1" uuid="bb78ecd7-9ba9-4bdd-906a-1bed5cd57383"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="129" y="13" width="61" height="15" uuid="01f351bf-ad15-4ac4-a226-0e9708ee023f"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uang_bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="28" width="60" height="15" uuid="55954c9a-10ae-4b4d-ba4c-23a54a07b985"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uang_kembali}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
