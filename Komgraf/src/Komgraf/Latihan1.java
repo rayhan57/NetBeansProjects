@@ -26,9 +26,9 @@ public class Latihan1 extends javax.swing.JFrame {
     public void paint(Graphics g) {
         try {
             Thread.sleep(10);
-            g.drawOval(20, 50, 80, 80);
-            g.fillArc(20, 150, 80, 80, 0, 90);
-            g.setColor(Color.BLUE);
+            g.drawOval(20, 50, 100, 100);
+            g.fillArc(150, 50, 100, 100, 0, 90);
+            g.setColor(Color.red);
         } catch (InterruptedException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -44,6 +44,7 @@ public class Latihan1 extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Komgraf");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
