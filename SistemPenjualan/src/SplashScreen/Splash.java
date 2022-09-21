@@ -6,7 +6,6 @@
 package SplashScreen;
 
 import Penjualan.Beranda;
-import Penjualan.DataTransaksi;
 import javax.swing.JOptionPane;
 
 /**

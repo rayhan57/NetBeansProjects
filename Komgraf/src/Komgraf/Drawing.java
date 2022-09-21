@@ -5,33 +5,29 @@
  */
 package Komgraf;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author RLB
  */
-public class Latihan1 extends javax.swing.JFrame {
+public class Drawing extends javax.swing.JFrame {
 
     /**
-     * Creates new form Latihan1
+     * Creates new form Drawing
      */
-    public Latihan1() {
+    public Drawing() {
         initComponents();
     }
 
     @Override
     public void paint(Graphics g) {
-        try {
-            Thread.sleep(10);
-            g.drawOval(20, 50, 100, 100);
-            g.fillArc(150, 50, 100, 100, 0, 90);
-            g.setColor(Color.red);
-        } catch (InterruptedException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        int x = 20;
+        int y = 50;
+        int width = 80;
+        int height = 80;
+
+        g.drawOval(x, y, width, height);
     }
 
     /**
@@ -44,20 +40,20 @@ public class Latihan1 extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Komgraf");
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(616, 639));
+        setSize(new java.awt.Dimension(816, 639));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -78,20 +74,20 @@ public class Latihan1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Latihan1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Latihan1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Latihan1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Latihan1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Latihan1().setVisible(true);
+                new Drawing().setVisible(true);
             }
         });
     }
