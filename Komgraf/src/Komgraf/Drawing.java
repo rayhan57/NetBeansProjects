@@ -22,12 +22,8 @@ public class Drawing extends javax.swing.JFrame {
 
     @Override
     public void paint(Graphics g) {
-        int x = 20;
-        int y = 50;
-        int width = 80;
-        int height = 80;
 
-        g.drawOval(x, y, width, height);
+        g.drawOval(20, 30, 100, 100);
     }
 
     /**
