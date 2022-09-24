@@ -22,7 +22,6 @@ public class Drawing extends javax.swing.JFrame {
 
     @Override
     public void paint(Graphics g) {
-
         g.drawOval(20, 30, 100, 100);
     }
 
@@ -42,11 +41,11 @@ public class Drawing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(816, 639));
