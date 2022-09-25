@@ -5,40 +5,52 @@
  */
 package Komgraf;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author RLB
  */
 public class AduKekuatan extends javax.swing.JFrame {
 
+    int kekuatankarakter1, kekuatankarakter2;
+    String nama1, nama2, result;
+
     /**
      * Creates new form AduKekuatan
      */
     public AduKekuatan() {
         initComponents();
-        pemenang.setText("" + Tarung(Balmond(), Leomord()));
-        kekuatanBalmond.setText("" + Balmond());
-        kekuatanLeomord.setText("" + Leomord());
+        setKarakter();
+        Tarung();
     }
 
-    static int Balmond() {
-        int kekuatan = (int) (Math.random() * 101);
-        return kekuatan;
+    private void setKarakter() {
+        nama1 = JOptionPane.showInputDialog(null, "Masukan nama karakter pertama", "Masukan karakter", JOptionPane.QUESTION_MESSAGE);
+        nama2 = JOptionPane.showInputDialog(null, "Masukan nama karakter kedua", "Masukan karakter", JOptionPane.QUESTION_MESSAGE);
+        namaKarakter1.setText(nama1);
+        namaKarakter2.setText(nama2);
     }
 
-    static int Leomord() {
-        int kekuatan = (int) (Math.random() * 101);
-        return kekuatan;
-    }
+    private String Tarung() {
+        kekuatankarakter1 = (int) (Math.random() * 101);
+        kekuatankarakter2 = (int) (Math.random() * 101);
 
-    private String Tarung(int balmond, int leomord) {
-        String result;
-//        result = (balmond > leomord) ? "Balmond Menang" : "Leomord Menang";
-        if (balmond > leomord) {
-            result = "Balmond Menang";
-        } else {
-            result = "Leomord Menang";
+        try {
+            for (int i = 0; i <= kekuatankarakter1; i++) {
+                kekuatanKarakter1.setText(i + "");
+                Thread.sleep(40);
+            }
+            for (int x = 0; x <= kekuatankarakter2; x++) {
+                kekuatanKarakter2.setText(kekuatankarakter2 + "");
+                Thread.sleep(40);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
+
+        result = (kekuatankarakter1 < kekuatankarakter2) ? nama2 + " Menang" : nama1 + " Menang";
+        pemenang.setText(result);
         return result;
     }
 
@@ -51,22 +63,25 @@ public class AduKekuatan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JLabel = new javax.swing.JLabel();
+        namaKarakter1 = new javax.swing.JLabel();
         btnRestart = new javax.swing.JButton();
         result1 = new javax.swing.JLabel();
-        result2 = new javax.swing.JLabel();
-        kekuatanBalmond = new javax.swing.JLabel();
-        kekuatanLeomord = new javax.swing.JLabel();
+        namaKarakter2 = new javax.swing.JLabel();
+        kekuatanKarakter1 = new javax.swing.JLabel();
+        kekuatanKarakter2 = new javax.swing.JLabel();
         pemenang = new javax.swing.JLabel();
+        btnGantiKarakter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        JLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel.setText("Balmond");
+        namaKarakter1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        namaKarakter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaKarakter1.setText("Karakter1");
 
         btnRestart.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         btnRestart.setText("Restart");
+        btnRestart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRestart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestartActionPerformed(evt);
@@ -77,21 +92,30 @@ public class AduKekuatan extends javax.swing.JFrame {
         result1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         result1.setText("VS");
 
-        result2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        result2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        result2.setText("Leomord");
+        namaKarakter2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        namaKarakter2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaKarakter2.setText("Karakter2");
 
-        kekuatanBalmond.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        kekuatanBalmond.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kekuatanBalmond.setText("0");
+        kekuatanKarakter1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kekuatanKarakter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kekuatanKarakter1.setText("0");
 
-        kekuatanLeomord.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        kekuatanLeomord.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kekuatanLeomord.setText("0");
+        kekuatanKarakter2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kekuatanKarakter2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kekuatanKarakter2.setText("0");
 
         pemenang.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         pemenang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pemenang.setText("Pemenang");
+
+        btnGantiKarakter.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnGantiKarakter.setText("Ganti Karakter");
+        btnGantiKarakter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGantiKarakter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGantiKarakterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,53 +123,61 @@ public class AduKekuatan extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(89, 89, 89)
-                            .addComponent(kekuatanBalmond)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kekuatanLeomord)
-                            .addGap(29, 29, 29))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(64, 64, 64)
-                            .addComponent(JLabel)
-                            .addGap(37, 37, 37)
-                            .addComponent(result1)
-                            .addGap(46, 46, 46)
-                            .addComponent(result2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(btnRestart)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addComponent(pemenang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(namaKarakter1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(result1))
+                    .addComponent(kekuatanKarakter1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kekuatanKarakter2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(namaKarakter2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addComponent(pemenang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(btnRestart))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(btnGantiKarakter)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLabel)
+                    .addComponent(namaKarakter1)
                     .addComponent(result1)
-                    .addComponent(result2))
+                    .addComponent(namaKarakter2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kekuatanBalmond)
-                    .addComponent(kekuatanLeomord))
+                    .addComponent(kekuatanKarakter1)
+                    .addComponent(kekuatanKarakter2))
                 .addGap(18, 18, 18)
                 .addComponent(pemenang)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(btnRestart)
-                .addGap(80, 80, 80))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGantiKarakter)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
-        new AduKekuatan().show();
-        this.dispose();
+        String Tarung = Tarung();
     }//GEN-LAST:event_btnRestartActionPerformed
+
+    private void btnGantiKarakterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGantiKarakterActionPerformed
+        setKarakter();
+        String Tarung = Tarung();
+    }//GEN-LAST:event_btnGantiKarakterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,12 +215,13 @@ public class AduKekuatan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JLabel;
+    private javax.swing.JButton btnGantiKarakter;
     private javax.swing.JButton btnRestart;
-    private javax.swing.JLabel kekuatanBalmond;
-    private javax.swing.JLabel kekuatanLeomord;
+    private javax.swing.JLabel kekuatanKarakter1;
+    private javax.swing.JLabel kekuatanKarakter2;
+    private javax.swing.JLabel namaKarakter1;
+    private javax.swing.JLabel namaKarakter2;
     private javax.swing.JLabel pemenang;
     private javax.swing.JLabel result1;
-    private javax.swing.JLabel result2;
     // End of variables declaration//GEN-END:variables
 }
