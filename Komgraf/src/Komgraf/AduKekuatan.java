@@ -5,6 +5,8 @@
  */
 package Komgraf;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +17,7 @@ public class AduKekuatan extends javax.swing.JFrame {
 
     int kekuatankarakter1, kekuatankarakter2;
     String nama1, nama2, result;
+    Thread t;
 
     /**
      * Creates new form AduKekuatan
@@ -32,26 +35,58 @@ public class AduKekuatan extends javax.swing.JFrame {
         namaKarakter2.setText(nama2);
     }
 
-    private String Tarung() {
+    private void Tarung() {
         kekuatankarakter1 = (int) (Math.random() * 101);
         kekuatankarakter2 = (int) (Math.random() * 101);
 
-        try {
-            for (int i = 0; i <= kekuatankarakter1; i++) {
-                kekuatanKarakter1.setText(i + "");
-                Thread.sleep(40);
-            }
-            for (int x = 0; x <= kekuatankarakter2; x++) {
-                kekuatanKarakter2.setText(kekuatankarakter2 + "");
-                Thread.sleep(40);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-
+        Animation();
         result = (kekuatankarakter1 < kekuatankarakter2) ? nama2 + " Menang" : nama1 + " Menang";
-        pemenang.setText(result);
-        return result;
+
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    pemenang.setText("Pemenangnya adalah");
+                    Thread.sleep(2500);
+                    pemenang.setText(result);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        });
+        t.start();
+    }
+
+    private void Animation() {
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i <= kekuatankarakter1; i++) {
+                        kekuatanKarakter1.setText(i + "");
+                        Thread.sleep(30);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        });
+        t.start();
+
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int x = 0; x <= kekuatankarakter2; x++) {
+                        kekuatanKarakter2.setText(x + "");
+                        Thread.sleep(30);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        });
+        t.start();
     }
 
     /**
@@ -106,7 +141,6 @@ public class AduKekuatan extends javax.swing.JFrame {
 
         pemenang.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         pemenang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pemenang.setText("Pemenang");
 
         btnGantiKarakter.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         btnGantiKarakter.setText("Ganti Karakter");
@@ -163,7 +197,7 @@ public class AduKekuatan extends javax.swing.JFrame {
                 .addComponent(btnRestart)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGantiKarakter)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(416, 339));
@@ -171,12 +205,12 @@ public class AduKekuatan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
-        String Tarung = Tarung();
+        Tarung();
     }//GEN-LAST:event_btnRestartActionPerformed
 
     private void btnGantiKarakterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGantiKarakterActionPerformed
         setKarakter();
-        String Tarung = Tarung();
+        Tarung();
     }//GEN-LAST:event_btnGantiKarakterActionPerformed
 
     /**
@@ -208,6 +242,7 @@ public class AduKekuatan extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AduKekuatan().setVisible(true);
             }
