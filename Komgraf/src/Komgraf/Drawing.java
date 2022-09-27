@@ -23,20 +23,41 @@ public class Drawing extends javax.swing.JFrame {
 
     @Override
     public void paint(Graphics g) {
-//        g.drawOval(20, 30, 100, 100);
         g.setColor(Color.gray);
         g.fillArc(220, 100, 150, 150, 0, 360);//Kepala
+
         g.setColor(Color.white);
         g.fillArc(234, 130, 60, 60, 0, 360);//Mata kiri
         g.fillArc(296, 130, 60, 60, 0, 360);//Mata kanan
+
         g.setColor(Color.black);
-        g.fillArc(253, 150, 20, 20, 0, 360);//Mata kiri
-        g.fillArc(317, 150, 20, 20, 0, 360);//Mata kanan
+        g.fillArc(253, 150, 20, 20, 0, 360);//Bola mata kiri
+        g.fillArc(317, 150, 20, 20, 0, 360);//Bola mata kanan
         g.fillArc(285, 180, 20, 20, 0, 360);//Hidung
         g.fillArc(260, 170, 70, 70, 180, 180);//Mulut
+        g.drawLine(220, 180, 200, 80);//Kuping kiri
+        g.drawLine(200, 80, 280, 100);//Kuping kiri
+        g.drawLine(370, 180, 390, 80);//Kuping kanan
+        g.drawLine(390, 80, 310, 100);//Kuping kanan
+
         g.setColor(Color.red);
         g.fillArc(277, 204, 35, 35, 180, 180);//Lidah
 
+        g.setColor(Color.black);
+        g.fillArc(243, 250, 110, 125, 0, 360);//Badan
+        g.fillRect(190, 280, 70, 20);//Tangan kiri
+        g.fillArc(170, 265, 30, 50, 0, 360);//Tangan kiri
+        g.fillRect(340, 280, 70, 20);//Tangan kanan
+        g.fillArc(395, 265, 30, 50, 0, 360);//Tangan kanan
+
+        g.setColor(Color.gray);
+        g.fillArc(260, 280, 75, 75, 0, 360);//Perut
+
+        g.setColor(Color.black);
+        g.fillRect(263, 360, 20, 70);//Kaki kiri
+        g.fillArc(235, 410, 50, 30, 0, 360);//Kaki kiri
+        g.fillRect(313, 360, 20, 70);//Kaki kanan
+        g.fillArc(310, 410, 50, 30, 0, 360);//Kaki kanan
     }
 
     /**
@@ -49,6 +70,7 @@ public class Drawing extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kucing Nyengir");
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
