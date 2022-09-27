@@ -20,12 +20,23 @@ public class Drawing extends javax.swing.JFrame {
     public Drawing() {
         initComponents();
     }
-    
+
     @Override
     public void paint(Graphics g) {
 //        g.drawOval(20, 30, 100, 100);
+        g.setColor(Color.gray);
+        g.fillArc(220, 100, 150, 150, 0, 360);//Kepala
+        g.setColor(Color.white);
+        g.fillArc(234, 130, 60, 60, 0, 360);//Mata kiri
+        g.fillArc(296, 130, 60, 60, 0, 360);//Mata kanan
+        g.setColor(Color.black);
+        g.fillArc(253, 150, 20, 20, 0, 360);//Mata kiri
+        g.fillArc(317, 150, 20, 20, 0, 360);//Mata kanan
+        g.fillArc(285, 180, 20, 20, 0, 360);//Hidung
+        g.fillArc(260, 170, 70, 70, 180, 180);//Mulut
         g.setColor(Color.red);
-        g.fillArc(20, 30, 100, 100, 0, 180);
+        g.fillArc(277, 204, 35, 35, 180, 180);//Lidah
+
     }
 
     /**
