@@ -5,6 +5,7 @@
  */
 package Komgraf;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -19,10 +20,12 @@ public class Drawing extends javax.swing.JFrame {
     public Drawing() {
         initComponents();
     }
-
+    
     @Override
     public void paint(Graphics g) {
-        g.drawOval(20, 30, 100, 100);
+//        g.drawOval(20, 30, 100, 100);
+        g.setColor(Color.red);
+        g.fillArc(20, 30, 100, 100, 0, 180);
     }
 
     /**
@@ -41,14 +44,14 @@ public class Drawing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(816, 639));
+        setSize(new java.awt.Dimension(616, 639));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
