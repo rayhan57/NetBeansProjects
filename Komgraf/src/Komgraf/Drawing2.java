@@ -45,19 +45,19 @@ public class Drawing2 extends javax.swing.JFrame {
 
         g.setColor(Color.black);
         g.fillArc(110, 150, 90, 105, 0, 360);//Badan
-        g.fillRect(70, 170, 60, 10);//Tangan kiri
+        g.fillRect(70, 170, 60, 15);//Tangan kiri
         g.fillArc(60, 155, 20, 40, 0, 360);//Tangan kiri
-        g.fillRect(190, 170, 60, 10);//Tangan kanan
+        g.fillRect(190, 170, 60, 15);//Tangan kanan
         g.fillArc(230, 155, 20, 40, 0, 360);//Tangan kanan
 
         g.setColor(Color.gray);
         g.fillArc(120, 175, 70, 70, 0, 360);//Perut
 
         g.setColor(Color.black);
-        g.fillRect(263, 360, 20, 70);//Kaki kiri
-        g.fillArc(235, 410, 50, 30, 0, 360);//Kaki kiri
-        g.fillRect(313, 360, 20, 70);//Kaki kanan
-        g.fillArc(310, 410, 50, 30, 0, 360);//Kaki kanan
+        g.fillRect(125, 240, 15, 60);//Kaki kiri
+        g.fillArc(100, 290, 40, 20, 0, 360);//Kaki kiri
+        g.fillRect(170, 240, 15, 60);//Kaki kanan
+        g.fillArc(170, 290, 40, 20, 0, 360);//Kaki kanan
     }
 
     /**
