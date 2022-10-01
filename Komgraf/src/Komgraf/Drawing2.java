@@ -12,46 +12,46 @@ import java.awt.Graphics;
  *
  * @author RLB
  */
-public class Drawing extends javax.swing.JFrame {
+public class Drawing2 extends javax.swing.JFrame {
 
     /**
      * Creates new form Drawing
      */
-    public Drawing() {
+    public Drawing2() {
         initComponents();
     }
 
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.gray);
-        g.fillArc(220, 100, 150, 150, 0, 360);//Kepala
+        g.fillArc(100, 50, 100, 100, 0, 360);//Kepala
 
         g.setColor(Color.white);
-        g.fillArc(234, 130, 60, 60, 0, 360);//Mata kiri
-        g.fillArc(296, 130, 60, 60, 0, 360);//Mata kanan
+        g.fillArc(110, 70, 40, 40, 0, 360);//Mata kiri
+        g.fillArc(150, 70, 40, 40, 0, 360);//Mata kanan
 
         g.setColor(Color.black);
-        g.fillArc(253, 150, 20, 20, 0, 360);//Bola mata kiri
-        g.fillArc(317, 150, 20, 20, 0, 360);//Bola mata kanan
-        g.fillArc(285, 180, 20, 20, 0, 360);//Hidung
-        g.fillArc(260, 170, 70, 70, 180, 180);//Mulut
-        g.drawLine(220, 180, 200, 80);//Kuping kiri
-        g.drawLine(200, 80, 280, 100);//Kuping kiri
-        g.drawLine(370, 180, 390, 80);//Kuping kanan
-        g.drawLine(390, 80, 310, 100);//Kuping kanan
+        g.fillArc(120, 80, 20, 20, 0, 360);//Bola mata kiri
+        g.fillArc(160, 80, 20, 20, 0, 360);//Bola mata kanan
+        g.fillArc(140, 100, 20, 20, 0, 360);//Hidung
+        g.fillArc(127, 100, 45, 45, 180, 180);//Mulut
+        g.drawLine(100, 90, 95, 30);//Kuping kiri
+        g.drawLine(95, 30, 140, 50);//Kuping kiri
+        g.drawLine(198, 90, 210, 30);//Kuping kanan
+        g.drawLine(210, 30, 160, 50);//Kuping kanan
 
         g.setColor(Color.red);
-        g.fillArc(277, 204, 35, 35, 180, 180);//Lidah
+        g.fillArc(137, 120, 25, 25, 180, 180);//Lidah
 
         g.setColor(Color.black);
-        g.fillArc(243, 250, 110, 125, 0, 360);//Badan
-        g.fillRect(190, 280, 70, 20);//Tangan kiri
-        g.fillArc(170, 265, 30, 50, 0, 360);//Tangan kiri
-        g.fillRect(340, 280, 70, 20);//Tangan kanan
-        g.fillArc(395, 265, 30, 50, 0, 360);//Tangan kanan
+        g.fillArc(110, 150, 90, 105, 0, 360);//Badan
+        g.fillRect(70, 170, 60, 10);//Tangan kiri
+        g.fillArc(60, 155, 20, 40, 0, 360);//Tangan kiri
+        g.fillRect(190, 170, 60, 10);//Tangan kanan
+        g.fillArc(230, 155, 20, 40, 0, 360);//Tangan kanan
 
         g.setColor(Color.gray);
-        g.fillArc(260, 280, 75, 75, 0, 360);//Perut
+        g.fillArc(120, 175, 70, 70, 0, 360);//Perut
 
         g.setColor(Color.black);
         g.fillRect(263, 360, 20, 70);//Kaki kiri
@@ -77,14 +77,14 @@ public class Drawing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(616, 639));
+        setSize(new java.awt.Dimension(316, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,20 +105,21 @@ public class Drawing extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Drawing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Drawing().setVisible(true);
+                new Drawing2().setVisible(true);
             }
         });
     }
