@@ -30,9 +30,9 @@ public class Exclusive extends javax.swing.JFrame {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
 
-        Shape lingkaran1 = new Ellipse2D.Double(50, 50, 100, 100);
-        Shape lingkaran2 = new Ellipse2D.Double(100, 50, 100, 100);
-        Shape lingkaran3 = new Ellipse2D.Double(75, 100, 100, 100);
+        Shape lingkaran1 = new Ellipse2D.Double(50, 50, 30, 30);
+        Shape lingkaran2 = new Ellipse2D.Double(70, 50, 30, 30);
+        Shape lingkaran3 = new Ellipse2D.Double(60, 60, 30, 30);
 
         Area a1 = new Area(lingkaran1);
         Area a2 = new Area(lingkaran2);
