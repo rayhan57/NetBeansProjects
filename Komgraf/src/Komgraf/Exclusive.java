@@ -5,59 +5,51 @@
  */
 package Komgraf;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.Area;
+import java.awt.geom.Ellipse2D;
 
 /**
  *
  * @author RLB
  */
-public class Drawing2 extends javax.swing.JFrame {
+public class Exclusive extends javax.swing.JFrame {
 
     /**
-     * Creates new form Drawing
+     * Creates new form Intersection2
      */
-    public Drawing2() {
+    public Exclusive() {
         initComponents();
     }
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.gray);
-        g.fillArc(100, 50, 100, 100, 0, 360);//Kepala
+        Graphics2D g2 = (Graphics2D) g;
 
-        g.setColor(Color.white);
-        g.fillArc(110, 70, 40, 40, 0, 360);//Mata kiri
-        g.fillArc(150, 70, 40, 40, 0, 360);//Mata kanan
+        Shape lingkaran1 = new Ellipse2D.Double(50, 50, 100, 100);
+        Shape lingkaran2 = new Ellipse2D.Double(100, 50, 100, 100);
+        Shape lingkaran3 = new Ellipse2D.Double(75, 100, 100, 100);
 
-        g.setColor(Color.black);
-        g.fillArc(120, 80, 20, 20, 0, 360);//Bola mata kiri
-        g.fillArc(160, 80, 20, 20, 0, 360);//Bola mata kanan
-        g.fillArc(140, 100, 20, 20, 0, 360);//Hidung
-        g.fillArc(127, 100, 45, 45, 180, 180);//Mulut
-        g.drawLine(100, 90, 95, 30);//Kuping kiri
-        g.drawLine(95, 30, 140, 50);//Kuping kiri
-        g.drawLine(198, 90, 210, 30);//Kuping kanan
-        g.drawLine(210, 30, 160, 50);//Kuping kanan
+        Area a1 = new Area(lingkaran1);
+        Area a2 = new Area(lingkaran2);
+        Area a3 = new Area(lingkaran3);
 
-        g.setColor(Color.red);
-        g.fillArc(137, 120, 25, 25, 180, 180);//Lidah
+        BasicStroke tebal = new BasicStroke(5.0f);
+        g2.setStroke(tebal);
+        g2.setPaint(Color.blue);
 
-        g.setColor(Color.black);
-        g.fillArc(110, 150, 90, 105, 0, 360);//Badan
-        g.fillRect(70, 170, 60, 15);//Tangan kiri
-        g.fillArc(60, 155, 20, 40, 0, 360);//Tangan kiri
-        g.fillRect(190, 170, 60, 15);//Tangan kanan
-        g.fillArc(230, 155, 20, 40, 0, 360);//Tangan kanan
-
-        g.setColor(Color.gray);
-        g.fillArc(120, 175, 70, 70, 0, 360);//Perut
-
-        g.setColor(Color.black);
-        g.fillRect(125, 240, 15, 60);//Kaki kiri
-        g.fillArc(100, 290, 40, 20, 0, 360);//Kaki kiri
-        g.fillRect(170, 240, 15, 60);//Kaki kanan
-        g.fillArc(170, 290, 40, 20, 0, 360);//Kaki kanan
+        g2.draw(lingkaran1);
+        g2.draw(lingkaran2);
+        g2.draw(lingkaran3);
+        a1.exclusiveOr(a2);
+        a2.exclusiveOr(a3);
+        g2.setPaint(Color.green);
+        g2.fill(a1);
+        g2.fill(a2);
     }
 
     /**
@@ -70,21 +62,20 @@ public class Drawing2 extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Kucing Nyengir");
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(316, 339));
+        setSize(new java.awt.Dimension(516, 539));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,13 +96,13 @@ public class Drawing2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exclusive.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exclusive.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exclusive.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Drawing2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exclusive.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -119,7 +110,7 @@ public class Drawing2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Drawing2().setVisible(true);
+                new Exclusive().setVisible(true);
             }
         });
     }
