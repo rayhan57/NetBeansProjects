@@ -26,21 +26,21 @@ public class LatihanUTS extends JPanel {
         int y2[] = {80, 80, 100};
         int pts2 = x2.length;
         g.drawLine(120, 50, 120, 80); //garis
-        g.drawPolygon(x2, y2, pts2); 
+        g.drawPolygon(x2, y2, pts2);
         g.fillPolygon(x2, y2, pts2);
-        
+
         int x3[] = {150, 250, 150, 250};
         int y3[] = {10, 10, 150, 150};
         int pts3 = x3.length;
         g.drawPolygon(x3, y3, pts3);
-        
+
         int x4[] = {270, 290, 280};
         int y4[] = {80, 80, 100};
         int pts4 = x4.length;
         g.drawLine(280, 50, 280, 80); //garis
-        g.drawPolygon(x4, y4, pts4); 
+        g.drawPolygon(x4, y4, pts4);
         g.fillPolygon(x4, y4, pts4);
-        
+
         int x5[] = {300, 400, 300, 400};
         int y5[] = {10, 10, 150, 150};
         int pts5 = x5.length;
@@ -51,6 +51,7 @@ public class LatihanUTS extends JPanel {
     public static void main(String[] args) {
         JFrame f = new JFrame();
         f.getContentPane().add(new LatihanUTS());
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(500, 500);
         f.setVisible(true);
     }
