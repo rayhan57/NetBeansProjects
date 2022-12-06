@@ -28,9 +28,17 @@ public class Rotasi1 extends javax.swing.JPanel {
         Graphics2D g2d = (Graphics2D) g;
         Line2D gr2x = new Line2D.Double(10, 10, 200, 10);
         Line2D gr2y = new Line2D.Double(10, 10, 10, 100);
-        
+
         g2d.setColor(Color.red);
+        g2d.draw(gr2x);
+        g2d.draw(gr2y);
+        g2d.fillRect(20, 20, 100, 50);
         
+        g2d.translate(170, 50);
+        g2d.setColor(Color.blue);
+        g2d.draw(gr2x);
+        g2d.draw(gr2y);
+        g2d.fillRect(20, 20, 100, 50);
     }
 
     public static void main(String[] args) {
