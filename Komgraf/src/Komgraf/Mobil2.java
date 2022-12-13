@@ -82,7 +82,7 @@ public class Mobil2 extends javax.swing.JPanel {
         g2d.drawLine(220, 140, 220, 260);
 
         //Handle
-        g2d.fillRect(150, 220, 15, 5);
+        g2d.fillRect(150, 220, 20, 10);
 
         //Ban
         g2d.fillOval(240, 240, 50, 50);//Depan
