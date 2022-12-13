@@ -20,85 +20,85 @@ import javax.swing.JFrame;
  *
  * @author RLB
  */
-public class Mobil extends javax.swing.JPanel {
+public class Mobil2 extends javax.swing.JPanel {
 
     /**
      * Creates new form Mobil
      */
-    public Mobil() {
+    public Mobil2() {
         initComponents();
     }
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        GeneralPath gp = new GeneralPath();
+        GeneralPath path = new GeneralPath();
+        
+        //Awan
+        g.setColor(Color.cyan);
+        Shape lingkaran1 = new Ellipse2D.Double(100, 20, 50, 50);
+        Shape lingkaran2 = new Ellipse2D.Double(140, 20, 50, 50);
+        Shape lingkaran3 = new Ellipse2D.Double(90, 40, 70, 30);
+        Shape lingkaran4 = new Ellipse2D.Double(120, 40, 90, 30);
+        g2d.fill(lingkaran1);
+        g2d.fill(lingkaran2);
+        g2d.fill(lingkaran3);
+        g2d.fill(lingkaran4);
 
-        //bodi belakang.
-        g.setColor(Color.red);
+        //Body belakang
+        g2d.setColor(Color.red);
+        g2d.fillRect(20, 180, 40, 80);
 
-        g2d.fillRect(20, 220, 50, 90);
-        //bodi belakang atas
-        Shape persegi = new Rectangle2D.Double(20, 170, 50, 50);
-        Shape lingkaran = new Ellipse2D.Double(20, 170, 100, 100);
+        //Body belakang atas
+        Shape persegi = new Rectangle2D.Double(20, 140, 40, 40);
+        Shape lingkaran = new Ellipse2D.Double(20, 140, 80, 80);
         Area a1 = new Area(persegi);
         Area a2 = new Area(lingkaran);
         a2.intersect(a1); //persimpangan a1 masuk ke a2
         g2d.fill(a2);
 
-        //kaca depan
-        BasicStroke Gtebal = new BasicStroke(5.0f);
-        g2d.setStroke(Gtebal);
-        gp.moveTo(345, 170);
-        gp.curveTo(345, 170, 380, 180, 380, 240);
-        g2d.draw(gp);
-
         //Atap
-        BasicStroke gtebal = new BasicStroke(5.0f);
+        BasicStroke gtebal = new BasicStroke(4.0f);
         g2d.setStroke(gtebal);
-        g2d.drawLine(70, 170, 340, 170);
+        g2d.drawLine(60, 140, 270, 140);
 
-        //bodi atas ban
-        g2d.fillRect(70, 240, 300, 70);
-        g2d.fillArc(300, 240, 140, 140, 0, 90);
+        //Kaca depan
+        BasicStroke Gtebal = new BasicStroke(4.0f);
+        g2d.setStroke(Gtebal);
+        path.moveTo(270, 140);
+        path.curveTo(280, 170, 290, 170, 280, 200);
+        g2d.draw(path);
 
+        //Body tengah
+        g2d.fillRect(60, 200, 210, 60);
+        g2d.fillArc(210, 200, 120, 120, 0, 90);
+
+        //Pembatas 
         g.setColor(Color.black);
-        //pembatas 
-        BasicStroke tebal = new BasicStroke(5.0f);
+        BasicStroke tebal = new BasicStroke(4.0f);
         g2d.setStroke(tebal);
-        g2d.drawLine(70, 310, 70, 170);
-        g2d.drawLine(70, 250, 400, 250);
-        g2d.drawLine(180, 310, 180, 170);
-        g2d.drawLine(290, 310, 290, 170);
+        g2d.drawLine(60, 140, 60, 260);
+        g2d.drawLine(60, 210, 290, 210);
+        g2d.drawLine(140, 140, 140, 260);
+        g2d.drawLine(220, 140, 220, 260);
 
-        //knalpot
-        g2d.fillRect(10, 280, 30, 20);
+        //Handle
+        g2d.fillRect(150, 220, 15, 5);
 
-        //Roda
-        g2d.fillOval(80, 270, 80, 80);
-        g2d.fillOval(310, 270, 80, 80);
+        //Ban
+        g2d.fillOval(240, 240, 50, 50);//Depan
+        g2d.fillOval(70, 240, 50, 50);//Belakang
 
-        //gagang pintu
-        g2d.fillRect(185, 255, 20, 10);
+        //Bumper
+        g2d.fillRect(280, 250, 50, 10);
 
-        //bemper
-        g2d.fillRect(380, 290, 60, 20);
-
-        //awan
-        Shape lingkaran1 = new Ellipse2D.Double(120, 20, 60, 60);
-        Shape lingkaran2 = new Ellipse2D.Double(170, 20, 60, 60);
-        Shape lingkaran3 = new Ellipse2D.Double(110, 40, 80, 40);
-        Shape lingkaran4 = new Ellipse2D.Double(150, 40, 100, 40);
-        g.setColor(Color.cyan);
-        g2d.fill(lingkaran1);
-        g2d.fill(lingkaran2);
-        g2d.fill(lingkaran3);
-        g2d.fill(lingkaran4);
+        //Knalpot
+        g2d.fillRect(10, 240, 20, 10);
     }
 
     public static void main(String[] args) {
         JFrame f = new JFrame();
-        f.getContentPane().add(new Mobil());
-        f.setSize(600, 600);
+        f.getContentPane().add(new Mobil2());
+        f.setSize(400, 400);
         f.setVisible(true);
         f.setLocationRelativeTo(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
