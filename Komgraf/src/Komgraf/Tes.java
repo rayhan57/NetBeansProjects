@@ -6,6 +6,7 @@
 package Komgraf;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,12 +16,14 @@ import javax.swing.JOptionPane;
 public class Tes extends javax.swing.JFrame {
 
     Thread t;
+    
 
     /**
      * Creates new form Tes
      */
     public Tes() {
         initComponents();
+        animasiLoading();
     }
 
     private void gantiWarna() {
@@ -29,6 +32,24 @@ public class Tes extends javax.swing.JFrame {
         int blue = (int) (Math.random() * 256);
         background.setBackground(new Color(red, green, blue));
         System.out.println("Merah: " + red + " Hijau: " + green + " Biru " + blue);
+    }
+
+    private void animasiLoading() {
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 200; i++) {
+                    try {
+                        loadingBar.setPreferredSize(new Dimension(i, 20));
+                        persentaseLoading.setText(i + "%");
+                        Thread.sleep(20);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
+                }
+            }
+        });
+        t.start();
     }
 
     /**
@@ -42,6 +63,8 @@ public class Tes extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         sliderGantiBackground = new javax.swing.JSlider();
+        persentaseLoading = new javax.swing.JLabel();
+        loadingBar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,21 +74,43 @@ public class Tes extends javax.swing.JFrame {
             }
         });
 
+        persentaseLoading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        persentaseLoading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        loadingBar.setBackground(new java.awt.Color(0, 204, 255));
+        loadingBar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        javax.swing.GroupLayout loadingBarLayout = new javax.swing.GroupLayout(loadingBar);
+        loadingBar.setLayout(loadingBarLayout);
+        loadingBarLayout.setHorizontalGroup(
+            loadingBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        loadingBarLayout.setVerticalGroup(
+            loadingBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
-                .addComponent(sliderGantiBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sliderGantiBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(persentaseLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadingBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(211, 211, 211)
                 .addComponent(sliderGantiBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addComponent(persentaseLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(loadingBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,6 +177,8 @@ public class Tes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JPanel loadingBar;
+    private javax.swing.JLabel persentaseLoading;
     private javax.swing.JSlider sliderGantiBackground;
     // End of variables declaration//GEN-END:variables
 }
