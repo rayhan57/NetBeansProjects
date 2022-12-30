@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Komgraf;
+package Bahan;
 
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
@@ -54,6 +54,7 @@ public class SplashScreen extends javax.swing.JFrame {
                         Thread.sleep(50);
                         if (i == 100) {
                             Thread.sleep(1000);
+                            new Login().show();
                             dispose();
                         }
                     } catch (Exception e) {
@@ -84,19 +85,19 @@ public class SplashScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        background.setBackground(new java.awt.Color(173, 142, 112));
+        background.setBackground(new java.awt.Color(238, 238, 238));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         copyright.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        copyright.setForeground(new java.awt.Color(255, 235, 183));
+        copyright.setForeground(new java.awt.Color(48, 56, 65));
         copyright.setText("Copyright © 2023, Rayhan Lingga Buana");
         background.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 369, 780, -1));
 
         image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         image.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\splash.png")); // NOI18N
-        background.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 800, 260));
+        background.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 260));
 
-        loadingProgress.setBackground(new java.awt.Color(36, 55, 99));
+        loadingProgress.setBackground(new java.awt.Color(0, 18, 83));
 
         javax.swing.GroupLayout loadingProgressLayout = new javax.swing.GroupLayout(loadingProgress);
         loadingProgress.setLayout(loadingProgressLayout);
@@ -112,7 +113,7 @@ public class SplashScreen extends javax.swing.JFrame {
         background.add(loadingProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 317, -1, -1));
 
         persentaseLoading.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        persentaseLoading.setForeground(new java.awt.Color(255, 235, 183));
+        persentaseLoading.setForeground(new java.awt.Color(48, 56, 65));
         persentaseLoading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         persentaseLoading.setText("Loading... 0%");
         background.add(persentaseLoading, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 279, 570, -1));
