@@ -76,11 +76,7 @@
         <Container class="javax.swing.JPanel" name="loadingProgress">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD:BahanSkripsi/src/Bahan/SplashScreen.form
               <Color blue="53" green="12" red="0" type="rgb"/>
-=======
-              <Color blue="b5" green="ad" red="0" type="rgb"/>
->>>>>>> 644283cdf8cbccee1372aeb7d348b189a525e223:Komgraf/build/classes/Komgraf/SplashScreen.form
             </Property>
           </Properties>
           <Constraints>

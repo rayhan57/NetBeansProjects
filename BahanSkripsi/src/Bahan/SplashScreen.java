@@ -97,11 +97,7 @@ public class SplashScreen extends javax.swing.JFrame {
         image.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\splash.png")); // NOI18N
         background.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 260));
 
-<<<<<<< HEAD:BahanSkripsi/src/Bahan/SplashScreen.java
         loadingProgress.setBackground(new java.awt.Color(0, 18, 83));
-=======
-        loadingProgress.setBackground(new java.awt.Color(0, 173, 181));
->>>>>>> 644283cdf8cbccee1372aeb7d348b189a525e223:Komgraf/src/Komgraf/SplashScreen.java
 
         javax.swing.GroupLayout loadingProgressLayout = new javax.swing.GroupLayout(loadingProgress);
         loadingProgress.setLayout(loadingProgressLayout);
