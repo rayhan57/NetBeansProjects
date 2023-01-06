@@ -5,11 +5,23 @@
  */
 package Bahan;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author RLB
  */
 public class Login extends javax.swing.JFrame {
+
+    private final Connection conn = new Koneksi().konek();
+    private Statement st;
+    private ResultSet rs;
+    private String sql;
+
+    private String username, password;
 
     /**
      * Creates new form Login2
@@ -17,6 +29,35 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         show.hide();
+    }
+
+    private void login() {
+        username = String.valueOf(inputUsername.getText());
+        password = String.valueOf(inputPassword.getPassword());
+
+        if (username.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                sql = "SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'";
+                st = conn.createStatement();
+                rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Berhasil Masuk");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                    reset();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
+    }
+
+    private void reset() {
+        inputUsername.setText("");
+        inputPassword.setText("");
     }
 
     /**
@@ -73,6 +114,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnBuatAkun, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 449, 65, 16));
 
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 395, 216, 30));
 
         template.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/Login.png"))); // NOI18N
@@ -98,6 +144,10 @@ public class Login extends javax.swing.JFrame {
         new Register().show();
         dispose();
     }//GEN-LAST:event_btnBuatAkunMouseClicked
+
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        login();
+    }//GEN-LAST:event_btnLoginMouseClicked
 
     /**
      * @param args the command line arguments

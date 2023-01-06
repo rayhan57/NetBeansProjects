@@ -42,30 +42,24 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Konfirmasi Password Tidak Sesuai");
         } else {
             try {
-                cekAkun();
-                sql = "INSERT INTO user VALUES" + "('" + nama + "','" + username + "','" + password1 + "')";
+                sql = "SELECT * FROM user WHERE username='" + username + "'";
                 st = conn.createStatement();
-                st.execute(sql);
-                reset();
-                JOptionPane.showMessageDialog(null, "Berhasil Masuk");
-                dispose();
-                new Login().show();
+                rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Username " + username + " sudah ada\nSilahkan Gunakan Username Lain");
+                    reset();
+                } else {
+                    sql = "INSERT INTO user VALUES" + "('" + nama + "','" + username + "','" + password1 + "')";
+                    st = conn.createStatement();
+                    st.execute(sql);
+                    reset();
+                    JOptionPane.showMessageDialog(null, "Berhasil Mendaftar");
+                    dispose();
+                    new Login().show();
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
-        }
-    }
-
-    private void cekAkun() {
-        try {
-            sql = "SELECT * FROM user WHERE username='" + username + "'";
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
-            while (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Username " + username + " sudah ada\nSilahkan Gunakan Username Lain");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
