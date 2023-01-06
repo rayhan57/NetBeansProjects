@@ -40,7 +40,7 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        hide.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\mdi_hide.png")); // NOI18N
+        hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/hide.png"))); // NOI18N
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hideMouseClicked(evt);
@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 24, 24));
 
-        show.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\mdi_show.png")); // NOI18N
+        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/show.png"))); // NOI18N
         show.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showMouseClicked(evt);
@@ -64,7 +64,6 @@ public class Login extends javax.swing.JFrame {
         inputUsername.setBorder(null);
         getContentPane().add(inputUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 275, 220, -1));
 
-        btnBuatAkun.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Buat Akun.png")); // NOI18N
         btnBuatAkun.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuatAkun.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -73,11 +72,10 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnBuatAkun, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 449, 65, 16));
 
-        btnLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Button Login.png")); // NOI18N
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 395, 216, 30));
 
-        template.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Login.png")); // NOI18N
+        template.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/Login.png"))); // NOI18N
         getContentPane().add(template, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(800, 600));

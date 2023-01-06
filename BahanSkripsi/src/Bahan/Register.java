@@ -5,17 +5,75 @@
  */
 package Bahan;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author RLB
  */
 public class Register extends javax.swing.JFrame {
 
+    private final Connection conn = new Koneksi().konek();
+    private Statement st;
+    private ResultSet rs;
+    private String sql;
+
+    private String nama, username, password1, password2;
+
     /**
      * Creates new form Login2
      */
     public Register() {
         initComponents();
+    }
+
+    private void register() {
+        nama = String.valueOf(inputNama.getText());
+        username = String.valueOf(inputUsername.getText());
+        password1 = String.valueOf(inputPassword.getPassword());
+        password2 = String.valueOf(inputKonfirmasiPassword.getPassword());
+
+        if (nama.equals("") || username.equals("") || password1.equals("") || password2.equals("")) {
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        } else if (!password1.equals(password2)) {
+            JOptionPane.showMessageDialog(null, "Konfirmasi Password Tidak Sesuai");
+        } else {
+            try {
+                cekAkun();
+                sql = "INSERT INTO user VALUES" + "('" + nama + "','" + username + "','" + password1 + "')";
+                st = conn.createStatement();
+                st.execute(sql);
+                reset();
+                JOptionPane.showMessageDialog(null, "Berhasil Masuk");
+                dispose();
+                new Login().show();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
+    }
+
+    private void cekAkun() {
+        try {
+            sql = "SELECT * FROM user WHERE username='" + username + "'";
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Username " + username + " sudah ada\nSilahkan Gunakan Username Lain");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    private void reset() {
+        inputNama.setText("");
+        inputUsername.setText("");
+        inputPassword.setText("");
+        inputKonfirmasiPassword.setText("");
     }
 
     /**
@@ -55,11 +113,14 @@ public class Register extends javax.swing.JFrame {
         inputNama.setBorder(null);
         getContentPane().add(inputNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 220, -1));
 
-        btnRegister.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Button Register.png")); // NOI18N
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 441, 241, 30));
 
-        btnMasuk.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Button Masuk.png")); // NOI18N
         btnMasuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMasuk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -68,7 +129,7 @@ public class Register extends javax.swing.JFrame {
         });
         getContentPane().add(btnMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 495, 43, 16));
 
-        template.setIcon(new javax.swing.ImageIcon("C:\\Users\\RLB\\Downloads\\Register.png")); // NOI18N
+        template.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/Register.png"))); // NOI18N
         getContentPane().add(template, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(800, 600));
@@ -79,6 +140,10 @@ public class Register extends javax.swing.JFrame {
         new Login().show();
         dispose();
     }//GEN-LAST:event_btnMasukMouseClicked
+
+    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
+        register();
+    }//GEN-LAST:event_btnRegisterMouseClicked
 
     /**
      * @param args the command line arguments

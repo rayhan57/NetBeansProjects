@@ -30,7 +30,7 @@
     <Component class="javax.swing.JLabel" name="hide">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\RLB\Downloads\mdi_hide.png"/>
+          <Image iconType="3" name="/Component/hide.png"/>
         </Property>
       </Properties>
       <Events>
@@ -45,7 +45,7 @@
     <Component class="javax.swing.JLabel" name="show">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\RLB\Downloads\mdi_show.png"/>
+          <Image iconType="3" name="/Component/show.png"/>
         </Property>
       </Properties>
       <Events>
@@ -89,9 +89,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="btnBuatAkun">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\RLB\Downloads\Buat Akun.png"/>
-        </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
@@ -107,9 +104,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="btnLogin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\RLB\Downloads\Button Login.png"/>
-        </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
@@ -123,7 +117,7 @@
     <Component class="javax.swing.JLabel" name="template">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\RLB\Downloads\Login.png"/>
+          <Image iconType="3" name="/Component/Login.png"/>
         </Property>
       </Properties>
       <Constraints>
