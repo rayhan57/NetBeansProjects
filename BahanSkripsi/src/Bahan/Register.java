@@ -5,6 +5,7 @@
  */
 package Bahan;
 
+import com.sun.glass.events.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -46,14 +47,14 @@ public class Register extends javax.swing.JFrame {
                 st = conn.createStatement();
                 rs = st.executeQuery(sql);
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Username " + username + " sudah ada\nSilahkan Gunakan Username Lain");
+                    JOptionPane.showMessageDialog(null, "Username " + username + " sudah ada\nSilahkan gunakan username lain");
                     reset();
                 } else {
-                    sql = "INSERT INTO user VALUES" + "('" + nama + "','" + username + "','" + password1 + "')";
+                    sql = "INSERT INTO user VALUES" + "('" + nama + "','" + username + "', md5('" + password1 + "'))";
                     st = conn.createStatement();
                     st.execute(sql);
                     reset();
-                    JOptionPane.showMessageDialog(null, "Berhasil Mendaftar");
+                    JOptionPane.showMessageDialog(null, "Berhasil Mendaftar", "Sukses", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                     new Login().show();
                 }
@@ -97,14 +98,29 @@ public class Register extends javax.swing.JFrame {
 
         inputPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputPassword.setBorder(null);
+        inputPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputPasswordKeyReleased(evt);
+            }
+        });
         getContentPane().add(inputPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 220, -1));
 
         inputUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputUsername.setBorder(null);
+        inputUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputUsernameKeyReleased(evt);
+            }
+        });
         getContentPane().add(inputUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 265, 220, -1));
 
         inputNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputNama.setBorder(null);
+        inputNama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputNamaKeyReleased(evt);
+            }
+        });
         getContentPane().add(inputNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 220, -1));
 
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -138,6 +154,24 @@ public class Register extends javax.swing.JFrame {
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
         register();
     }//GEN-LAST:event_btnRegisterMouseClicked
+
+    private void inputNamaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNamaKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            inputUsername.requestFocus();
+        }
+    }//GEN-LAST:event_inputNamaKeyReleased
+
+    private void inputUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputUsernameKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            inputPassword.requestFocus();
+        }
+    }//GEN-LAST:event_inputUsernameKeyReleased
+
+    private void inputPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPasswordKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            inputKonfirmasiPassword.requestFocus();
+        }
+    }//GEN-LAST:event_inputPasswordKeyReleased
 
     /**
      * @param args the command line arguments

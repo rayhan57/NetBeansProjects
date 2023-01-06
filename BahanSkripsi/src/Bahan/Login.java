@@ -5,6 +5,7 @@
  */
 package Bahan;
 
+import com.sun.glass.events.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -39,11 +40,11 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                sql = "SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'";
+                sql = "SELECT * FROM user WHERE username='" + username + "' AND password= md5('" + password + "')";
                 st = conn.createStatement();
                 rs = st.executeQuery(sql);
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Berhasil Masuk");
+                    JOptionPane.showMessageDialog(null, "Berhasil Masuk", "Sukses", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Peringatan", JOptionPane.ERROR_MESSAGE);
@@ -99,10 +100,20 @@ public class Login extends javax.swing.JFrame {
 
         inputPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputPassword.setBorder(null);
+        inputPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputPasswordKeyReleased(evt);
+            }
+        });
         getContentPane().add(inputPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 220, -1));
 
         inputUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputUsername.setBorder(null);
+        inputUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputUsernameKeyReleased(evt);
+            }
+        });
         getContentPane().add(inputUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 275, 220, -1));
 
         btnBuatAkun.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -148,6 +159,18 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         login();
     }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void inputUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputUsernameKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            inputPassword.requestFocus();
+        }
+    }//GEN-LAST:event_inputUsernameKeyReleased
+
+    private void inputPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPasswordKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login();
+        }
+    }//GEN-LAST:event_inputPasswordKeyReleased
 
     /**
      * @param args the command line arguments
