@@ -6,10 +6,15 @@
 package Bahan;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -30,6 +35,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         show.hide();
+        tampilanWaktu();
     }
 
     private void login() {
@@ -61,6 +67,20 @@ public class Login extends javax.swing.JFrame {
         inputPassword.setText("");
     }
 
+    private void tampilanWaktu() {
+        Timer t;
+        t = new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LocalDateTime sekarang = LocalDateTime.now();
+                DateTimeFormatter formatWaktu = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss");
+                String waktuSekarang = sekarang.format(formatWaktu);
+                tanggalWaktu.setText(waktuSekarang);
+            }
+        });
+        t.start();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +90,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tanggalWaktu = new javax.swing.JLabel();
         hide = new javax.swing.JLabel();
         show = new javax.swing.JLabel();
         inputPassword = new javax.swing.JPasswordField();
@@ -81,6 +102,10 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tanggalWaktu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tanggalWaktu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(tanggalWaktu, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 160, 20));
 
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/hide.png"))); // NOI18N
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -215,6 +240,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JLabel show;
+    private javax.swing.JLabel tanggalWaktu;
     private javax.swing.JLabel template;
     // End of variables declaration//GEN-END:variables
 }
