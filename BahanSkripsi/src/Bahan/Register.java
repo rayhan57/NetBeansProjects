@@ -80,6 +80,7 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnKeluar = new javax.swing.JLabel();
         inputKonfirmasiPassword = new javax.swing.JPasswordField();
         inputPassword = new javax.swing.JPasswordField();
         inputUsername = new javax.swing.JTextField();
@@ -91,6 +92,14 @@ public class Register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKeluarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 555, 24, 24));
 
         inputKonfirmasiPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputKonfirmasiPassword.setBorder(null);
@@ -173,6 +182,10 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputPasswordKeyReleased
 
+    private void btnKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKeluarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnKeluarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -212,6 +225,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnKeluar;
     private javax.swing.JLabel btnMasuk;
     private javax.swing.JLabel btnRegister;
     private javax.swing.JPasswordField inputKonfirmasiPassword;

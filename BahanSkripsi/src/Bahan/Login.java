@@ -91,6 +91,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnKeluar = new javax.swing.JLabel();
         tanggalWaktu = new javax.swing.JLabel();
         hide = new javax.swing.JLabel();
         show = new javax.swing.JLabel();
@@ -103,6 +104,14 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKeluarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 555, 24, 24));
 
         tanggalWaktu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tanggalWaktu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -198,6 +207,10 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputPasswordKeyReleased
 
+    private void btnKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKeluarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnKeluarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +249,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBuatAkun;
+    private javax.swing.JLabel btnKeluar;
     private javax.swing.JLabel btnLogin;
     private javax.swing.JLabel hide;
     private javax.swing.JPasswordField inputPassword;
