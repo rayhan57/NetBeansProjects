@@ -6,6 +6,7 @@
 package Bahan;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -73,7 +74,7 @@ public class Login extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 LocalDateTime sekarang = LocalDateTime.now();
-                DateTimeFormatter formatWaktu = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss");
+                DateTimeFormatter formatWaktu = DateTimeFormatter.ofPattern("d MMM yyyy HH:mm:ss");
                 String waktuSekarang = sekarang.format(formatWaktu);
                 tanggalWaktu.setText(waktuSekarang);
             }
