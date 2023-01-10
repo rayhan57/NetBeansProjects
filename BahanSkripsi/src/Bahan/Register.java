@@ -93,13 +93,14 @@ public class Register extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnKeluar.setToolTipText("Keluar");
         btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnKeluarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 555, 24, 24));
+        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 560, 24, 24));
 
         inputKonfirmasiPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         inputKonfirmasiPassword.setBorder(null);
@@ -138,7 +139,7 @@ public class Register extends javax.swing.JFrame {
                 btnRegisterMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 441, 241, 30));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 441, 230, 30));
 
         btnMasuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMasuk.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,7 +147,7 @@ public class Register extends javax.swing.JFrame {
                 btnMasukMouseClicked(evt);
             }
         });
-        getContentPane().add(btnMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 495, 43, 16));
+        getContentPane().add(btnMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 495, 40, 16));
 
         template.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Component/Register.png"))); // NOI18N
         getContentPane().add(template, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

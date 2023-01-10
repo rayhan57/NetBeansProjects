@@ -105,13 +105,14 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnKeluar.setToolTipText("Keluar");
         btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnKeluarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 555, 24, 24));
+        getContentPane().add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 560, 24, 24));
 
         tanggalWaktu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tanggalWaktu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
